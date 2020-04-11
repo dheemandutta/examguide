@@ -120,12 +120,25 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Class1.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\AnswerMasterEntity.cs" />
+    <Compile Include="Models\ClassMasterEntity.cs" />
+    <Compile Include="Models\DistrictMasterEntity.cs" />
+    <Compile Include="Models\ExamMarksEntity.cs" />
+    <Compile Include="Models\ExamTimeEntity.cs" />
+    <Compile Include="Models\FeesMasterEntity.cs" />
+    <Compile Include="Models\PageMasterEntity.cs" />
+    <Compile Include="Models\QuestionMasterEntity.cs" />
+    <Compile Include="Models\StateMasterEntity.cs" />
+    <Compile Include="Models\StudentDetailsEntity.cs" />
+    <Compile Include="Models\StudentEntity.cs" />
+    <Compile Include="Models\StudentLogEntity.cs" />
+    <Compile Include="Models\SubjectMasterEntity.cs" />
+    <Compile Include="Models\TempAnswerEntity.cs" />
+    <Compile Include="Models\TempQuestionEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
