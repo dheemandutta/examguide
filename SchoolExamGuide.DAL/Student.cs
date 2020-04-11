@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SchoolExamGuide.DAL
 {
-    class Student
+    public class Student
     {
     }
 }
