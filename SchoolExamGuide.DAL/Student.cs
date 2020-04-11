@@ -8,5 +8,6 @@ namespace SchoolExamGuide.DAL
 {
     public class Student
     {
+
     }
 }
