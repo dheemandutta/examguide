@@ -5,11 +5,15 @@ using System.Web;
 
 namespace SchoolExamGuide.UI.Models
 {
-    public class ExamTimeEntity
+    public class TempQuestionModel
     {
         public int ID { get; set; }
 
-        public DateTime ExamTime { get; set; }
+        public string QuestionText { get; set; }
+
+        public decimal Marks { get; set; }
+
+        public decimal RowNo { get; set; }
 
         public int StudentID { get; set; }
     }

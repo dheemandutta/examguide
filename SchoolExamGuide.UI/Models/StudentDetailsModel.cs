@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SchoolExamGuide.UI.Models
 {
-    public class StudentDetailsEntity
+    public class StudentDetailsModel
     {
         public int StudentId { get; set; }
 

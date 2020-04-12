@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SchoolExamGuide.UI.Models
 {
-    public class PageMasterEntity
+    public class PageMasterModel
     {
         public int Id { get; set; }
 

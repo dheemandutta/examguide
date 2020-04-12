@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SchoolExamGuide.Entities
 {
-    public class Class1
+    public class StudentLogEntity
     {
+        public int ID { get; set; }
+
+        public int PageID { get; set; }
+
+        public DateTime AccessDate { get; set; }
     }
 }

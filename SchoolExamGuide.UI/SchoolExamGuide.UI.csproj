@@ -124,21 +124,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AnswerMasterEntity.cs" />
-    <Compile Include="Models\ClassMasterEntity.cs" />
-    <Compile Include="Models\DistrictMasterEntity.cs" />
-    <Compile Include="Models\ExamMarksEntity.cs" />
-    <Compile Include="Models\ExamTimeEntity.cs" />
-    <Compile Include="Models\FeesMasterEntity.cs" />
-    <Compile Include="Models\PageMasterEntity.cs" />
-    <Compile Include="Models\QuestionMasterEntity.cs" />
-    <Compile Include="Models\StateMasterEntity.cs" />
-    <Compile Include="Models\StudentDetailsEntity.cs" />
-    <Compile Include="Models\StudentEntity.cs" />
-    <Compile Include="Models\StudentLogEntity.cs" />
-    <Compile Include="Models\SubjectMasterEntity.cs" />
-    <Compile Include="Models\TempAnswerEntity.cs" />
-    <Compile Include="Models\TempQuestionEntity.cs" />
+    <Compile Include="Models\AnswerMasterModel.cs" />
+    <Compile Include="Models\ClassMasterModel.cs" />
+    <Compile Include="Models\DistrictMasterModel.cs" />
+    <Compile Include="Models\ExamMarksModel.cs" />
+    <Compile Include="Models\ExamTimeModel.cs" />
+    <Compile Include="Models\FeesMasterModel.cs" />
+    <Compile Include="Models\PageMasterModel.cs" />
+    <Compile Include="Models\QuestionMasterModel.cs" />
+    <Compile Include="Models\StateMasterModel.cs" />
+    <Compile Include="Models\StudentDetailsModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\StudentLogModel.cs" />
+    <Compile Include="Models\SubjectMasterModel.cs" />
+    <Compile Include="Models\TempAnswerModel.cs" />
+    <Compile Include="Models\TempQuestionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +163,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Sql Script\20200412_Snehasish_SubjectScript.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

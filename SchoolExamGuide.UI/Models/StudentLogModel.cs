@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SchoolExamGuide.UI.Models
 {
-    public class StudentLogEntity
+    public class StudentLogModel
     {
         public int ID { get; set; }
 

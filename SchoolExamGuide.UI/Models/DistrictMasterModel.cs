@@ -5,14 +5,12 @@ using System.Web;
 
 namespace SchoolExamGuide.UI.Models
 {
-    public class AnswerMasterEntity
+    public class DistrictMasterModel
     {
         public int ID { get; set; }
 
-        public string AnswerText { get; set; }
+        public string District { get; set; }
 
-        public bool? IsRightAnswer { get; set; }
-
-        public int QuestionID { get; set; }
+        public int StateID { get; set; }
     }
 }

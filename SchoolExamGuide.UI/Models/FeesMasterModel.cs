@@ -5,10 +5,10 @@ using System.Web;
 
 namespace SchoolExamGuide.UI.Models
 {
-    public class StateMasterEntity
+    public class FeesMasterModel
     {
-        public int Id { get; set; }
+        public int ClassId { get; set; }
 
-        public string State { get; set; }
+        public decimal Fees { get; set; }
     }
 }
