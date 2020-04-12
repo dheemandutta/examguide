@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolExamGuide.BL", "Schoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolExamGuide.UI", "SchoolExamGuide.UI\SchoolExamGuide.UI.csproj", "{B06BF02B-52C6-4120-B095-BF5EE19EC790}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolExamGuide.Entities", "SchoolExamGuide.Entities\SchoolExamGuide.Entities.csproj", "{A9685278-36EF-469B-B65C-C12F84E0A530}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B06BF02B-52C6-4120-B095-BF5EE19EC790}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B06BF02B-52C6-4120-B095-BF5EE19EC790}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B06BF02B-52C6-4120-B095-BF5EE19EC790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9685278-36EF-469B-B65C-C12F84E0A530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9685278-36EF-469B-B65C-C12F84E0A530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9685278-36EF-469B-B65C-C12F84E0A530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9685278-36EF-469B-B65C-C12F84E0A530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -44,5 +44,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolExamGuide.Entities\SchoolExamGuide.Entities.csproj">
+      <Project>{a9685278-36ef-469b-b65c-c12f84e0a530}</Project>
+      <Name>SchoolExamGuide.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
