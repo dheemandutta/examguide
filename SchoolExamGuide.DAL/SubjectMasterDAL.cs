@@ -123,5 +123,30 @@ namespace SchoolExamGuide.DAL
             con.Close();
             return subjectList;
         }
+
+        public List<SubjectMasterEntity> GetSubjectDetailsAll()
+        {
+            List<SubjectMasterEntity> subjectList = new List<SubjectMasterEntity>();
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("stpGetSubjectDetailsAll", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                subjectList.Add(new SubjectMasterEntity
+                {
+                    ID = Convert.ToInt32(dr["ID"].ToString()),
+                    SubjectName = dr["SubjectName"].ToString(),
+                    ClassID = Convert.ToInt32(dr["ClassID"].ToString()),
+                    ClassName = dr["ClassName"].ToString(),
+                });
+            }
+            con.Close();
+            return subjectList;
+        }
     }
 }

@@ -44,16 +44,6 @@ BEGIN
 END
 
 GO
-CREATE PROCEDURE [dbo].[stpGetSubjectDetailsAll]
-AS
-BEGIN
-SELECT S.ID, S.SubjectName, S.ClassID, C.ClassName
-FROM SubjectMaster S
-INNER JOIN ClassMaster C
-ON C.ID = S.ClassId
-END
-
-GO
 CREATE PROCEDURE [dbo].[stpGetSubjectDetailsBySubjectID]
 @ID INT
 AS
@@ -92,4 +82,26 @@ BEGIN
       WHERE RowNumber BETWEEN(@PageIndex -1) * @PageSize + 1 AND(((@PageIndex -1) * @PageSize + 1) + @PageSize) - 1
 	 -- ORDER BY [Order] ASC
       DROP TABLE #Results
+END
+
+GO
+CREATE PROCEDURE [dbo].[stpGetSubjectDetailsByClassID]
+@ClassID INT
+AS
+BEGIN
+SELECT S.ID, S.SubjectName, S.ClassID, C.ClassName
+FROM SubjectMaster S
+INNER JOIN ClassMaster C
+ON C.ID = S.ClassId
+WHERE S.ClassId = @ClassID
+END
+
+GO
+CREATE PROCEDURE [dbo].[stpGetSubjectDetailsAll]
+AS
+BEGIN
+SELECT S.ID, S.SubjectName, S.ClassID, C.ClassName
+FROM SubjectMaster S
+INNER JOIN ClassMaster C
+ON C.ID = S.ClassId
 END
