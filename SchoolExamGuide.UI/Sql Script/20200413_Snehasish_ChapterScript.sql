@@ -3,15 +3,15 @@ GO
 CREATE PROCEDURE [dbo].[stpSaveUpdateChapterMaster]
 (
 @Id INT,
-@ChapterName VARCHAR,
+@ChapterName VARCHAR(500),
 @SubjectId INT
 )
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRAN	
-			IF @Id > 0 
-				BEGIN
+			IF @Id IS NULL 
+			BEGIN
 					INSERT INTO ChapterMaster (ChapterName, SubjectId) VALUES (@ChapterName, @SubjectId)
 					SET @Id=@@IDENTITY
 				END
