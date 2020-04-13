@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerMasterEntity.cs" />
+    <Compile Include="ChapterMasterEntity.cs" />
     <Compile Include="ClassMasterEntity.cs" />
     <Compile Include="DistrictMasterEntity.cs" />
     <Compile Include="ExamMarksEntity.cs" />

@@ -163,6 +163,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Sql Script\20200413_Snehasish_ChapterScript.sql" />
     <Content Include="Sql Script\20200412_Snehasish_SubjectScript.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
