@@ -67,7 +67,7 @@ namespace SchoolExamGuide.DAL
             return chapter;
         }
 
-        public List<ChapterMasterEntity> GetSubjectDetailsPagewise(int pageIndex, ref int recordCount, int length)
+        public List<ChapterMasterEntity> GetChaptertDetailsPagewise(int pageIndex, ref int recordCount, int length)
         {
             List<ChapterMasterEntity> chapterList = new List<ChapterMasterEntity>();
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
