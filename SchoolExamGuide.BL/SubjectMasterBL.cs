@@ -8,7 +8,7 @@ using SchoolExamGuide.DAL;
 
 namespace SchoolExamGuide.BL
 {
-    public class StudentMasterBL
+    public class SubjectMasterBL
     {
         public int SaveUpdateSubjectMaster(SubjectMasterEntity subject)
         {
