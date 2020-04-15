@@ -28,7 +28,7 @@ namespace SchoolExamGuide.BL
             return chapterDal.ChapterDetailsByChapterID(chapterID);
         }
 
-        public List<ChapterMasterEntity> GetSubjectDetailsPagewise(int pageIndex, ref int recordCount, int length)
+        public List<ChapterMasterEntity> GetChapterDetailsPagewise(int pageIndex, ref int recordCount, int length)
         {
             ChapterMasterDAL chapterDal = new ChapterMasterDAL();
             return chapterDal.GetChaptertDetailsPagewise(pageIndex, ref recordCount, length);
