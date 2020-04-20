@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace SchoolExamGuide.UI
+namespace Angle
 {
     public class FilterConfig
     {
