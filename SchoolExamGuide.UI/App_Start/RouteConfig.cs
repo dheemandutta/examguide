@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace SchoolExamGuide.UI
+namespace Angle
 {
     public class RouteConfig
     {
@@ -16,7 +16,7 @@ namespace SchoolExamGuide.UI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Dashboard", action = "Dashboard_v1", id = UrlParameter.Optional }
             );
         }
     }
