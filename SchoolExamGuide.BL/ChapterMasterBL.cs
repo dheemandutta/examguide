@@ -16,6 +16,7 @@ namespace SchoolExamGuide.BL
             return chapterDal.SaveUpdateChapter(chapter);
         }
 
+
         public int DeleteChapter(int ChapterID)
         {
             ChapterMasterDAL chapterDal = new ChapterMasterDAL();
