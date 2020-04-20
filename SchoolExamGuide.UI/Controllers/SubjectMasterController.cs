@@ -18,6 +18,7 @@ namespace SchoolExamGuide.UI.Controllers
             return View();
         }
 
+
         public ActionResult SaveUpdateSubjectMaster(SubjectMasterEntity subject)
         {
             SubjectMasterBL subjectBl = new SubjectMasterBL();
