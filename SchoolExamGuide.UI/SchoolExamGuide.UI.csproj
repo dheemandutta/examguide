@@ -903,6 +903,7 @@
     <Content Include="Vendor\weather-icons\font\weathericons-regular-webfont.ttf" />
     <Content Include="Vendor\weather-icons\font\weathericons-regular-webfont.woff" />
     <Content Include="Vendor\weather-icons\font\weathericons-regular-webfont.woff2" />
+    <Content Include="Views\Account\MyViewDheeman.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
