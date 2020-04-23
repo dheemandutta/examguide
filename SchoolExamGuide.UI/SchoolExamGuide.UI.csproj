@@ -360,6 +360,8 @@
     <Content Include="Scripts\demo\demo-vector-map.js" />
     <Content Include="Scripts\demo\demo-wizard.js" />
     <Content Include="Scripts\demo\demo-xeditable.js" />
+    <Content Include="Sql Script\20200412_Snehasish_SubjectScript.sql" />
+    <Content Include="Sql Script\20200413_Snehasish_ChapterScript.sql" />
     <Content Include="Vendor\animate.css\animate.min.css" />
     <Content Include="Vendor\animo.js\animo.js" />
     <Content Include="Vendor\blueimp-canvas-to-blob\js\canvas-to-blob.js" />
@@ -906,6 +908,16 @@
     <Content Include="Vendor\weather-icons\font\weathericons-regular-webfont.woff" />
     <Content Include="Vendor\weather-icons\font\weathericons-regular-webfont.woff2" />
     <Content Include="Views\Account\MyViewDheeman.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolExamGuide.BL\SchoolExamGuide.BL.csproj">
+      <Project>{97c3f018-467e-49ca-9333-60ab408d6dc8}</Project>
+      <Name>SchoolExamGuide.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SchoolExamGuide.Entities\SchoolExamGuide.Entities.csproj">
+      <Project>{a9685278-36ef-469b-b65c-c12f84e0a530}</Project>
+      <Name>SchoolExamGuide.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
