@@ -908,6 +908,8 @@
     <Content Include="Vendor\weather-icons\font\weathericons-regular-webfont.woff" />
     <Content Include="Vendor\weather-icons\font\weathericons-regular-webfont.woff2" />
     <Content Include="Views\Account\MyViewDheeman.cshtml" />
+    <Content Include="Views\ChapterMaster\Index.cshtml" />
+    <Content Include="Views\SubjectMaster\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SchoolExamGuide.BL\SchoolExamGuide.BL.csproj">
