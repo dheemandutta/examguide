@@ -15,9 +15,9 @@ namespace SchoolExamGuide.UI.Controllers
         // GET: Subject
         public ActionResult Index()
         {
+            GetClassAll();
             return View();
         }
-
 
         public ActionResult SaveUpdateSubjectMaster(SubjectMasterEntity subject)
         {
@@ -26,17 +26,17 @@ namespace SchoolExamGuide.UI.Controllers
             return Json(rowAffected, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult DeleteSubjectMaster(int subjectID)
+        public ActionResult DeleteSubjectMaster(int ID)
         {
             SubjectMasterBL subjectBl = new SubjectMasterBL();
-            int rowAffected = subjectBl.DeleteSubjectByID(subjectID);
+            int rowAffected = subjectBl.DeleteSubjectByID(ID);
             return Json(rowAffected, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult GetSubjectDetailsBySubjectID(int subjectID)
+        public ActionResult GetSubjectDetailsBySubjectID(int ID)
         {
             SubjectMasterBL subjectBl = new SubjectMasterBL();
-            return Json(subjectBl.GetSubjectDetailsBySubjectID(subjectID), JsonRequestBehavior.AllowGet);
+            return Json(subjectBl.GetSubjectDetailsBySubjectID(ID), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -96,6 +96,19 @@ namespace SchoolExamGuide.UI.Controllers
                     Text = x.SubjectName,
                     Value=x.ID.ToString()
                 });
+        }
+
+        public void GetClassAll()
+        {
+            SubjectMasterBL subjectBl = new SubjectMasterBL();
+            List<SubjectMasterEntity> classList = new List<SubjectMasterEntity>();
+            classList = subjectBl.GetClassDetailsAll();
+            ViewBag.getclassall = classList.Select(x =>
+                  new SelectListItem
+                  {
+                      Text = x.ClassName,
+                      Value = x.ClassID.ToString()
+                  });
         }
     }
 }

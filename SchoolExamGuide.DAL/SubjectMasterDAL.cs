@@ -37,25 +37,25 @@ namespace SchoolExamGuide.DAL
             return recrodAffected;
         }
 
-        public int DeleteSubjectByID(int subjectID)
+        public int DeleteSubjectByID(int ID)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand("stpDeleteSubjectMasterBySubjectID", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@ID", subjectID);
+            cmd.Parameters.AddWithValue("@ID", ID);
             int recordAffected = cmd.ExecuteNonQuery();
             con.Close();
             return recordAffected;
         }
    
-        public SubjectMasterEntity GetSubjectDetailsBySubjectID(int subjectID)
+        public SubjectMasterEntity GetSubjectDetailsBySubjectID(int ID)
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand("stpGetSubjectDetailsBySubjectID", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@ID", subjectID);
+            cmd.Parameters.AddWithValue("@ID", ID);
             SubjectMasterEntity subject = new SubjectMasterEntity();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -64,7 +64,7 @@ namespace SchoolExamGuide.DAL
             subject.ID = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"].ToString());
             subject.SubjectName = ds.Tables[0].Rows[0]["SubjectName"].ToString();
             subject.ClassID = Convert.ToInt32(ds.Tables[0].Rows[0]["ClassID"].ToString());
-            subject.SubjectName = ds.Tables[0].Rows[0]["ClassName"].ToString();
+            subject.ClassName = ds.Tables[0].Rows[0]["ClassName"].ToString();
             return subject;
         }
         
@@ -79,7 +79,6 @@ namespace SchoolExamGuide.DAL
             cmd.Parameters.AddWithValue("@PageSize", length);
             cmd.Parameters.Add("@RecordCount", SqlDbType.Int, 4);
             cmd.Parameters["@RecordCount"].Direction = ParameterDirection.Output;
-            con.Open();
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
@@ -147,6 +146,28 @@ namespace SchoolExamGuide.DAL
             }
             con.Close();
             return subjectList;
+        }
+
+        public List<SubjectMasterEntity> GetClassDetailsAll()
+        {
+            List<SubjectMasterEntity> classList = new List<SubjectMasterEntity>();
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("stpGetClassDetailsAll", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                classList.Add(new SubjectMasterEntity
+                {
+                    ClassID = Convert.ToInt32(dr["ID"].ToString()),
+                    ClassName = dr["ClassName"].ToString(),
+                });
+            }
+            con.Close();
+            return classList;
         }
     }
 }

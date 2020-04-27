@@ -55,7 +55,7 @@
             <li class="@Html.isActive(controller: "Widgets")">
                 <a href="@Url.Action("Index", "Widgets")" title="Widgets">
                     <div class="label label-success pull-right">30</div>
-                    <em class="icon-grid"></em>                    
+                    <em class="icon-grid"></em>
                     <span data-localize="sidebar.nav.WIDGETS">Widgets</span>
                 </a>
             </li>
@@ -615,6 +615,24 @@
                 <a href="@Url.Action("Index", "Movies")" title="Movie App">
                     <em class="icon-trophy"></em>
                     <span>Movie App</span>
+                </a>
+            </li>
+            <li class="@Html.isActive(controller: "ClassMaster")">
+                <a href="@Url.Action("Index", "ClassMaster")" title="Movie App">
+                    <em class="icon-trophy"></em>
+                    <span>Class Master</span>
+                </a>
+            </li>
+            <li class="@Html.isActive(controller: "SubjectMaster")">
+                <a href="@Url.Action("Index", "SubjectMaster")" title="Movie App">
+                    <em class="icon-trophy"></em>
+                    <span>Subject Master</span>
+                </a>
+            </li>
+             <li class="@Html.isActive(controller: "ChapterMaster")">
+                <a href="@Url.Action("Index", "ChapterMaster")" title="Movie App">
+                    <em class="icon-trophy"></em>
+                    <span>Chapter Master</span>
                 </a>
             </li>
         </ul>

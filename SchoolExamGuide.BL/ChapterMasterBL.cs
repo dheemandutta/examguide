@@ -17,16 +17,16 @@ namespace SchoolExamGuide.BL
         }
 
 
-        public int DeleteChapter(int ChapterID)
+        public int DeleteChapter(int Id)
         {
             ChapterMasterDAL chapterDal = new ChapterMasterDAL();
-            return chapterDal.DeleteChapter(ChapterID);
+            return chapterDal.DeleteChapter(Id);
         }
 
-        public ChapterMasterEntity ChapterDetailsByChapterID(int chapterID)
+        public ChapterMasterEntity ChapterDetailsByChapterID(int ID)
         {
             ChapterMasterDAL chapterDal = new ChapterMasterDAL();
-            return chapterDal.ChapterDetailsByChapterID(chapterID);
+            return chapterDal.ChapterDetailsByChapterID(ID);
         }
 
         public List<ChapterMasterEntity> GetChapterDetailsPagewise(int pageIndex, ref int recordCount, int length)
@@ -45,6 +45,18 @@ namespace SchoolExamGuide.BL
         {
             ChapterMasterDAL chapterDal = new ChapterMasterDAL();
             return chapterDal.GetChapterDetailsAll();
+        }
+
+        public List<SubjectMasterEntity> GetClassDetailsAll()
+        {
+            SubjectMasterDAL subjectDal = new SubjectMasterDAL();
+            return subjectDal.GetClassDetailsAll();
+        }
+
+        public List<ChapterMasterEntity> GetSubjectDetailsAll()
+        {
+            ChapterMasterDAL chapterDal = new ChapterMasterDAL();
+            return chapterDal.GetSubjectDetailsAll();
         }
     }
 }

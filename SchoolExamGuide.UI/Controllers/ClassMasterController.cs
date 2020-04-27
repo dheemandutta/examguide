@@ -74,5 +74,6 @@ namespace SchoolExamGuide.UI.Controllers
             var data = list;
             return Json(new { draw = draw, recordsFiltered = totalrecords, recordsTotal = totalrecords, data = data }, JsonRequestBehavior.AllowGet);
         }
+
     }
 }
