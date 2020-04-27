@@ -97,5 +97,8 @@ namespace SchoolExamGuide.DAL
             }
             return classMasterEntity;
         }
+
+        
+
     }
 }

@@ -15,6 +15,8 @@ namespace SchoolExamGuide.UI.Controllers
         // GET: ChapterMaster
         public ActionResult Index()
         {
+            GetClassAll();
+            GetSubjectAll();
             return View();
         }
 
@@ -25,17 +27,17 @@ namespace SchoolExamGuide.UI.Controllers
             return Json(rowAffected, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult DeleteChapterMaster(int ChapterID)
+        public ActionResult DeleteChapterMaster(int Id)
         {
             ChapterMasterBL chapterBl = new ChapterMasterBL();
-            int rowAffected = chapterBl.DeleteChapter(ChapterID);
+            int rowAffected = chapterBl.DeleteChapter(Id);
             return Json(rowAffected, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ChapterDetailsByChapterID(int chapterID)
+        public ActionResult ChapterDetailsByChapterID(int ID)
         {
             ChapterMasterBL chapterBl = new ChapterMasterBL();
-            return Json(chapterBl.ChapterDetailsByChapterID(chapterID), JsonRequestBehavior.AllowGet);
+            return Json(chapterBl.ChapterDetailsByChapterID(ID), JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult LoadAllChapterPageWise()
@@ -93,6 +95,32 @@ namespace SchoolExamGuide.UI.Controllers
                     Value=x.Id.ToString(),
                 }
             );
+        }
+
+        public void GetClassAll()
+        {
+            SubjectMasterBL subjectBl = new SubjectMasterBL();
+            List<SubjectMasterEntity> classList = new List<SubjectMasterEntity>();
+            classList = subjectBl.GetClassDetailsAll();
+            ViewBag.getclassall = classList.Select(x =>
+                  new SelectListItem
+                  {
+                      Text = x.ClassName,
+                      Value = x.ClassID.ToString()
+                  });
+        }
+
+        public void GetSubjectAll()
+        {
+            ChapterMasterBL chapterBl = new ChapterMasterBL();
+            List<ChapterMasterEntity> subjectList = new List<ChapterMasterEntity>();
+            subjectList = chapterBl.GetSubjectDetailsAll();
+            ViewBag.getsubjectall = subjectList.Select(x =>
+                  new SelectListItem
+                  {
+                      Text = x.SubjectName,
+                      Value = x.SubjectId.ToString()
+                  });
         }
     }
 }

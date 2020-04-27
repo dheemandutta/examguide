@@ -16,16 +16,16 @@ namespace SchoolExamGuide.BL
             return subjectDal.SaveUpdateSubjectMaster(subject);
         }
 
-        public int DeleteSubjectByID(int subjectID)
+        public int DeleteSubjectByID(int ID)
         {
             SubjectMasterDAL subjectDal = new SubjectMasterDAL();
-            return subjectDal.DeleteSubjectByID(subjectID);
+            return subjectDal.DeleteSubjectByID(ID);
         }
 
-        public SubjectMasterEntity GetSubjectDetailsBySubjectID(int subjectID)
+        public SubjectMasterEntity GetSubjectDetailsBySubjectID(int ID)
         {
             SubjectMasterDAL subjectDal = new SubjectMasterDAL();
-            return subjectDal.GetSubjectDetailsBySubjectID(subjectID);
+            return subjectDal.GetSubjectDetailsBySubjectID(ID);
         }
 
         public List<SubjectMasterEntity> GetSubjectDetailsPagewise(int pageIndex, ref int recordCount, int length)
@@ -45,5 +45,11 @@ namespace SchoolExamGuide.BL
             SubjectMasterDAL subjectDal = new SubjectMasterDAL();
             return subjectDal.GetSubjectDetailsAll();
         }
+        public List<SubjectMasterEntity> GetClassDetailsAll()
+        {
+            SubjectMasterDAL subjectDal = new SubjectMasterDAL();
+            return subjectDal.GetClassDetailsAll();
+        }
+
     }
 }

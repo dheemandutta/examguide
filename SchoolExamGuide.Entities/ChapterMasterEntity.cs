@@ -12,5 +12,7 @@ namespace SchoolExamGuide.Entities
         public string ChapterName { get; set; }
         public int SubjectId { get; set; }
         public string SubjectName { get; set; }
+        public int ClassID { get; set; }
+        public string ClassName{ get; set; }
     }
 }
