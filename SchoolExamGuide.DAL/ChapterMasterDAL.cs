@@ -200,5 +200,65 @@ namespace SchoolExamGuide.DAL
             con.Close();
             return subjectList;
         }
+
+        public List<ChapterMasterEntity> GetSubjectDetailsByClassID(int classID)
+        {
+            List<ChapterMasterEntity> chapterList = new List<ChapterMasterEntity>();
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("stpGetSubjectDetailsByClassID", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ClassID", classID);
+
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                chapterList.Add(new ChapterMasterEntity
+                {
+                    Id = Convert.ToInt32(dr["Id"].ToString()),
+                    SubjectName = dr["SubjectName"].ToString(),
+                    ClassID = Convert.ToInt32(dr["ClassID"].ToString()),
+                    ClassName = dr["ClassName"].ToString(),
+                });
+            }
+            con.Close();
+            return chapterList;
+        }
+
+        public List<ChapterMasterEntity> GetChaptertDetailsSubjectAndPagewise(int pageIndex, ref int recordCount, int length, int SubjectId)
+        {
+            List<ChapterMasterEntity> chapterList = new List<ChapterMasterEntity>();
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("stpGetChapterDetailsSubjectPageWise", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@PageIndex", pageIndex);
+            cmd.Parameters.AddWithValue("@PageSize", length);
+            cmd.Parameters.AddWithValue("@SubjectId", SubjectId);
+            cmd.Parameters.Add("@RecordCount", SqlDbType.Int, 4);
+            cmd.Parameters["@RecordCount"].Direction = ParameterDirection.Output;
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                chapterList.Add(new ChapterMasterEntity
+                {
+                    Id = Convert.ToInt32(dr["Id"].ToString()),
+                    ChapterName = dr["ChapterName"].ToString(),
+                    SubjectId = Convert.ToInt32(dr["SubjectId"].ToString()),
+                    SubjectName = dr["SubjectName"].ToString(),
+                    ClassID = Convert.ToInt32(dr["ClassID"].ToString()),
+                    ClassName = dr["ClassName"].ToString(),
+                });
+                recordCount = Convert.ToInt32(cmd.Parameters["@RecordCount"].Value);
+            }
+            con.Close();
+            return chapterList;
+        }
+
     }
 }
