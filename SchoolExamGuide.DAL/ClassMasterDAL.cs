@@ -10,6 +10,7 @@ using SchoolExamGuide.Entities;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 
+
 namespace SchoolExamGuide.DAL
 {
     public class ClassMasterDAL
