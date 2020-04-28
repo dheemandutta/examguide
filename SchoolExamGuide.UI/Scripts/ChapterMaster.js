@@ -130,7 +130,7 @@ function GetChaptertMasterByID(Id) {
             $('#drpClass').val(result.ClassID);
             $('#drpSubject').val(result.SubjectId);
             $('#txtChapterName').val(result.ChapterName);
-            $('#ID').val(result.ID);
+            $('#Id').val(result.Id);
         },
         error: function (errormessage) {
             alert(errormessage.responseText);
@@ -141,7 +141,7 @@ function GetChaptertMasterByID(Id) {
 
 function Delete(Id) {
     var deleteUrl = $('#deletechapterbychapterid').val();
-    alert("Method called");
+    
     $.ajax({
         url: deleteUrl,
         data: JSON.stringify({ Id: Id}),
