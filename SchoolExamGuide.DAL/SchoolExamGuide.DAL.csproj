@@ -46,6 +46,7 @@
     <Compile Include="ClassMasterDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="StudentDetailsDAL.cs" />
     <Compile Include="SubjectMasterDAL.cs" />
   </ItemGroup>
   <ItemGroup>

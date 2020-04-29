@@ -19,5 +19,8 @@ namespace SchoolExamGuide.Entities
         public int DistrictId { get; set; }
 
         public int ID { get; set; }
+
+
+        public int ClassId { get; set; }
     }
 }
