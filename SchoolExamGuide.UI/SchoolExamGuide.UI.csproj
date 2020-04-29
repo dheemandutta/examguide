@@ -482,6 +482,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\SubjectMaster.js" />
+    <Content Include="Sql Script\2020.04.29 Full Script SchoolExamDB.sql" />
     <Content Include="Sql Script\20200412_Snehasish_RandD.sql" />
     <Content Include="Sql Script\20200427_Snehasish_ClassScript.sql" />
     <Content Include="Sql Script\20200412_Snehasish_SubjectScript.sql" />
