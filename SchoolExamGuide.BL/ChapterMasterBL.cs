@@ -58,5 +58,17 @@ namespace SchoolExamGuide.BL
             ChapterMasterDAL chapterDal = new ChapterMasterDAL();
             return chapterDal.GetSubjectDetailsAll();
         }
+
+        public List<ChapterMasterEntity> GetSubjectDetailsByClassID(int classID)
+        {
+            ChapterMasterDAL chapterDal = new ChapterMasterDAL();
+            return chapterDal.GetSubjectDetailsByClassID(classID);
+        }
+
+        public List<ChapterMasterEntity> GetChapterDetailsSubjectAndPagewise(int pageIndex, ref int recordCount, int length, int SubjectId)
+        {
+            ChapterMasterDAL chapterDal = new ChapterMasterDAL();
+            return chapterDal.GetChaptertDetailsSubjectAndPagewise(pageIndex, ref recordCount, length, SubjectId);
+        }
     }
 }

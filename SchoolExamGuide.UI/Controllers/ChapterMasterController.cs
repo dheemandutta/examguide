@@ -16,7 +16,7 @@ namespace SchoolExamGuide.UI.Controllers
         public ActionResult Index()
         {
             GetClassAll();
-            GetSubjectAll();
+            //GetSubjectAll();
             return View();
         }
 
@@ -121,6 +121,49 @@ namespace SchoolExamGuide.UI.Controllers
                       Text = x.SubjectName,
                       Value = x.SubjectId.ToString()
                   });
+        }
+
+        public ActionResult GetSubjectDetailsByClassID(int classID)
+        {
+            ChapterMasterBL chapterBl = new ChapterMasterBL();
+            return Json(chapterBl.GetSubjectDetailsByClassID(classID), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult LoadAllChapterSubjectAndPageWise(int SubjectId)
+        {
+            int draw, start, length;
+            int pageIndex = 0;
+
+            if (null != Request.Form.GetValues("draw"))
+            {
+                draw = int.Parse(Request.Form.GetValues("draw").FirstOrDefault().ToString());
+                start = int.Parse(Request.Form.GetValues("start").FirstOrDefault().ToString());
+                length = int.Parse(Request.Form.GetValues("length").FirstOrDefault().ToString());
+            }
+            else
+            {
+                draw = 1;
+                start = 0;
+                length = 50;
+            }
+
+            if (start == 0)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                pageIndex = (start / length) + 1;
+            }
+
+            ChapterMasterBL chapterBl = new ChapterMasterBL();
+            int totalrecords = 0;
+
+            List<ChapterMasterEntity> chapterList = new List<ChapterMasterEntity>();
+            chapterList = chapterBl.GetChapterDetailsSubjectAndPagewise(pageIndex, ref totalrecords, length, SubjectId);
+
+            var data = chapterList;
+            return Json(new { draw = draw, recordsFiltered = totalrecords, recordsTotal = totalrecords, data = data, SubjectId }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -14,6 +14,8 @@
     @Html.Hidden("loaddata", @Url.Action("LoadAllChapterPageWise", "ChapterMaster"))
     @Html.Hidden("getchapterbychapterid", @Url.Action("ChapterDetailsByChapterID", "ChapterMaster"))
     @Html.Hidden("deletechapterbychapterid", @Url.Action("DeleteChapterMaster", "ChapterMaster"))
+    @Html.Hidden("getsubjectbyclassid", @Url.Action("GetSubjectDetailsByClassID", "ChapterMaster"))
+    @Html.Hidden("loaddatabysujectid", @Url.Action("LoadAllChapterSubjectAndPageWise", "ChapterMaster"))
 
     <div class="row" style="height:2050px;">
         <div class="col-md-8" style="width: 100%;">
@@ -33,26 +35,20 @@
                                             <div class="form-group" style="margin-right: -600px;">
                                                 <label class="col-sm-2 control-label">Class:<font color=""></font> </label>
                                                 <div class="col-sm-1">
-                                                    @Html.DropDownListFor(model => model.ClassID, (IEnumerable<SelectListItem>)ViewBag.getclassall, "Select", new { @class = "form-control", @id = "drpClass" })
+                                                    @Html.DropDownListFor(model => model.ClassID, (IEnumerable<SelectListItem>)ViewBag.getclassall, "Select", new { @class = "form-control", @onchange = " GetSubjectByClassID()", @id = "drpClass" })
                                                 </div>
                                             </div>
-
-                                            @*<div class="form-group" style="margin-right: -600px;">
-            <label class="col-sm-2 control-label">Subject:<font color=""></font> </label>
-            <div class="col-sm-1">
-                <select name="account" class="form-control m-b" id="drpSubject" required="">
-                    <option value="">Select</option>
-
-                </select>
-            </div>
-        </div>*@
 
                                             <div class="form-group" style="margin-right: -600px;">
                                                 <label class="col-sm-2 control-label">Subject:<font color=""></font> </label>
                                                 <div class="col-sm-1">
-                                                    @Html.DropDownListFor(model => model.SubjectId, (IEnumerable<SelectListItem>)ViewBag.getsubjectall, "Select", new { @class = "form-control", @id = "drpSubject" })
+                                                    <select name="account" class="form-control m-b" style="width:50%" id="drpSubject" required=""  onchange="SetUpGridBySubjectID();">
+                                                        <option value="">Select</option>
+
+                                                    </select>
                                                 </div>
                                             </div>
+
 
                                             <div class="form-group" style="margin-right: -600px;">
                                                 <label class="col-sm-2 control-label">Chapter:<font color=""></font> </label>
@@ -158,19 +154,10 @@
 
 }
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(document).ready(function () {
         SetUpGrid();
 
     });
-</script>
+</script>*@
 
-
-@*@Html.DropDownListFor(m => m.Caste, new List<SelectListItem>
-                                                {
-                                                   new SelectListItem{ Text="Select", Value = "" },
-                                                   new SelectListItem{ Text="General", Value = "General" },
-                                                   new SelectListItem{ Text="OBC", Value = "OBC" },
-                                                   new SelectListItem{ Text="SC", Value = "SC" },
-                                                   new SelectListItem{ Text="ST", Value = "ST" }
-                                               }, new { name = "Caste", @class = "form-control m-b", @style = "width:50%", @id = "drpCaste", @required = "" })*@

@@ -166,3 +166,94 @@ function Delete(Id) {
     });
 
 }
+
+function GetSubjectByClassID(ClassID) {
+    var myUrl = $('#getsubjectbyclassid').val();
+    var myClassID = $('#drpClass').val();
+    $.ajax({
+        url: myUrl,
+        data: JSON.stringify({ ClassID: myClassID }),
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            $('#drpSubject').empty();
+            $('#drpSubject').append("<option value='0'>--Select--</option>");
+            $.each(result.d, function (key, value) {
+                $("#drpSubject").append($("<option></option>").val(value.SubjectId).html(value.SubjectId));
+            });
+        },
+        error: function (errormessage) {
+            alert(errormessage.responseText);
+        }
+    });
+}
+
+function loaddatabysujectid(SubjectId) {
+
+    var postUrl = $('#loaddata').val();
+    $.ajax({
+        url: postUrl,
+        "data": {
+            SubjectId: $('#drpSubject').val()
+        },
+
+        type: "GET",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            SetUpGrid();
+        },
+        error: function (errormessage) {
+            alert(errormessage.responseText);
+        }
+    });
+}
+
+function SetUpGridBySubjectID(SubjectId) {
+    var postUrl = $('#loaddata').val();
+
+    $.fn.dataTable.ext.errMode = 'none';
+
+    if ($.fn.dataTable.isDataTable('#chapterTable')) {
+        table = $('#chapterTable').DataTable();
+        table.destroy();
+    }
+
+    $("#chapterTable").DataTable({
+        "processing": true,
+        "serverSide": true,
+        "filter": false,
+        "orderMulti": false,
+        "bLengthChange": false,
+        "ajax": {
+            "url": postUrl,
+            "data": {
+                SubjectId: $('#drpSubject').val()
+            },
+            "type": "POST",
+            "datatype": "json"
+        },
+        "columns": [
+            {
+                "data": "ClassName", "name": "ClassName", "autoWidth": true
+            },
+            {
+                "data": "SubjectName", "name": "SubjectName", "autoWidth": true
+            },
+            {
+                "data": "ChapterName", "name": "ChapterName", "autoWidth": true
+            },
+            {
+                "data": "Id", "width": "50px", "render": function (data) {
+                    return '<a href="#" onclick="GetChaptertMasterByID(' + data + ')"><i class="fa fa-edit"></i></a>';
+                }
+            },
+            {
+                "data": "Id", "width": "50px", "render": function (data) {
+                    return '<a href="#" onclick="Delete(' + data + ')"><i class="fa fa-trash"></i></a>';
+                }
+            }
+        ]
+    });
+}
