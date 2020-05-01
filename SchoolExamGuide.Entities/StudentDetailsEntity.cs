@@ -22,5 +22,11 @@ namespace SchoolExamGuide.Entities
 
 
         public int ClassId { get; set; }
+
+
+        public string Name { get; set; }
+        public string State { get; set; }
+        public string District { get; set; }
+        public string ClassName { get; set; }
     }
 }

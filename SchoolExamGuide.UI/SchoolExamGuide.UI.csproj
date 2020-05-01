@@ -207,6 +207,7 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\MultilevelsController.cs" />
     <Compile Include="Controllers\PagesController.cs" />
+    <Compile Include="Controllers\StudentDetailsController.cs" />
     <Compile Include="Controllers\SubjectMasterController.cs" />
     <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Controllers\WidgetsController.cs" />
@@ -481,12 +482,14 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\StudentDetails.js" />
     <Content Include="Scripts\SubjectMaster.js" />
     <Content Include="Sql Script\2020.04.29 Full Script SchoolExamDB.sql" />
     <Content Include="Sql Script\20200412_Snehasish_RandD.sql" />
     <Content Include="Sql Script\20200427_Snehasish_ClassScript.sql" />
     <Content Include="Sql Script\20200412_Snehasish_SubjectScript.sql" />
     <Content Include="Sql Script\20200413_Snehasish_ChapterScript.sql" />
+    <Content Include="Sql Script\20200501_stpGetStudentDetailsByID.sql" />
     <Content Include="Sql Script\24.04.2020_stpGetClassMasterByID.sql" />
     <Content Include="Sql Script\24.04.2020_stpGetClassMasterPageWise.sql" />
     <Content Include="Vendor\animate.css\animate.min.css" />
@@ -995,6 +998,7 @@
     <Content Include="Views\Widgets\Index.cshtml" />
     <Content Include="Views\SubjectMaster\Index.cshtml" />
     <Content Include="Views\ChapterMaster\Index.cshtml" />
+    <Content Include="Views\StudentDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

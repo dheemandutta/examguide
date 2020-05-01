@@ -27,10 +27,10 @@ namespace SchoolExamGuide.DAL
             {
                 cmd.Parameters.AddWithValue("@ID", studentDetails.ID);
             }
-            cmd.Parameters.AddWithValue("@StudentId", studentDetails.StudentId);
-            cmd.Parameters.AddWithValue("@StateId", studentDetails.StateId);
-            cmd.Parameters.AddWithValue("@DistrictId", studentDetails.DistrictId);
-            cmd.Parameters.AddWithValue("@ClassId", studentDetails.ClassId);
+            cmd.Parameters.AddWithValue("@StudentId", studentDetails.Name);
+            cmd.Parameters.AddWithValue("@StateId", studentDetails.State);
+            cmd.Parameters.AddWithValue("@DistrictId", studentDetails.District);
+            cmd.Parameters.AddWithValue("@ClassId", studentDetails.ClassName);
             cmd.Parameters.AddWithValue("@GuardiansName", studentDetails.GuardiansName);
             cmd.Parameters.AddWithValue("@GuardiansMob", studentDetails.GuardiansMob);
 
@@ -74,13 +74,13 @@ namespace SchoolExamGuide.DAL
             return studentDetails;
         }
 
-        public List<StudentDetailsEntity> GetStudentDetailsPagewise(int pageIndex, ref int recordCount, int length) ////////////////////////////////
+        public List<StudentDetailsEntity> GetStudentDetailsPagewise(int pageIndex, ref int recordCount, int length) 
         {
             List<StudentDetailsEntity> studentDetailsEntity = new List<StudentDetailsEntity>();
 
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("stpGetClassMasterPageWise", con))
+                using (SqlCommand cmd = new SqlCommand("stpGetStudentDetailsPageWise", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PageIndex", pageIndex);
@@ -98,7 +98,12 @@ namespace SchoolExamGuide.DAL
                         studentDetailsEntity.Add(new StudentDetailsEntity
                         {
                             ID = Convert.ToInt32(dr["ID"]),
-                          //  ClassName = Convert.ToString(dr["ClassName"])
+                            Name = Convert.ToString(dr["Name"]),
+                            State = Convert.ToString(dr["State"]),
+                            District = Convert.ToString(dr["District"]),
+                            ClassName = Convert.ToString(dr["ClassName"]),
+                            GuardiansName = Convert.ToString(dr["GuardiansName"]),
+                            GuardiansMob = Convert.ToString(dr["GuardiansMob"]),
                         });
                     }
                     recordCount = Convert.ToInt32(cmd.Parameters["@RecordCount"].Value);
@@ -106,6 +111,96 @@ namespace SchoolExamGuide.DAL
                 }
             }
             return studentDetailsEntity;
+        }
+
+
+
+        //for Student drp
+        public List<StudentDetailsEntity> GetStudentForDrp()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("usp_GetStudentForDrp", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            DataTable myTable = ds.Tables[0];
+            List<StudentDetailsEntity> studentDetailsEntity = myTable.AsEnumerable().Select(m => new StudentDetailsEntity()
+            {
+                ID = m.Field<int>("ID"),
+                Name = m.Field<string>("Name"),
+
+            }).ToList();
+            con.Close();
+            return studentDetailsEntity;
+
+        }
+
+        //for ClassMaster drp
+        public List<StudentDetailsEntity> GetClassMasterForDrp()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("usp_GetClassMasterForDrp", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            DataTable myTable = ds.Tables[0];
+            List<StudentDetailsEntity> studentDetailsEntity = myTable.AsEnumerable().Select(m => new StudentDetailsEntity()
+            {
+                ID = m.Field<int>("ID"),
+                ClassName = m.Field<string>("ClassName"),
+
+            }).ToList();
+            con.Close();
+            return studentDetailsEntity;
+
+        }
+
+        //for DistrictMaster drp
+        public List<StudentDetailsEntity> GetDistrictMasterForDrp()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("usp_GetDistrictMasterForDrp", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            DataTable myTable = ds.Tables[0];
+            List<StudentDetailsEntity> studentDetailsEntity = myTable.AsEnumerable().Select(m => new StudentDetailsEntity()
+            {
+                ID = m.Field<int>("ID"),
+                District = m.Field<string>("District"),
+
+            }).ToList();
+            con.Close();
+            return studentDetailsEntity;
+
+        }
+
+        //for StateMaster drp
+        public List<StudentDetailsEntity> GetStateMasterForDrp()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SchoolExamConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("usp_GetStateMasterForDrp", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            DataTable myTable = ds.Tables[0];
+            List<StudentDetailsEntity> studentDetailsEntity = myTable.AsEnumerable().Select(m => new StudentDetailsEntity()
+            {
+                ID = m.Field<int>("ID"),
+                State = m.Field<string>("State"),
+
+            }).ToList();
+            con.Close();
+            return studentDetailsEntity;
+
         }
 
     }
