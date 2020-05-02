@@ -492,6 +492,9 @@
     <Content Include="Sql Script\20200501_stpGetStudentDetailsByID.sql" />
     <Content Include="Sql Script\24.04.2020_stpGetClassMasterByID.sql" />
     <Content Include="Sql Script\24.04.2020_stpGetClassMasterPageWise.sql" />
+    <Content Include="Sql Script\ClassMasterData.sql" />
+    <Content Include="Sql Script\DistrictMasterData.sql" />
+    <Content Include="Sql Script\StateMasterData.sql" />
     <Content Include="Vendor\animate.css\animate.min.css" />
     <Content Include="Vendor\animo.js\animo.js" />
     <Content Include="Vendor\blueimp-canvas-to-blob\js\canvas-to-blob.js" />
